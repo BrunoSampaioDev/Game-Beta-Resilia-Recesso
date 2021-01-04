@@ -10,7 +10,6 @@
 }
 
 
-
 .backgroundBlack{
     background-color: #000;
     color: #fff;
@@ -41,10 +40,36 @@
     justify-content: space-between;
 }
 
+.displayNone{
+    display: none;
+    transition: 500ms;
+}
+
+.loading{
+    
+    margin: 150px auto;
+    width: 300px;
+    background-image: url(../img/load.jpg);
+    background-size: cover;
+}
+
+@keyframes animaLoad {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 0; }
+}
+
+.titleLoad{
+    text-align: center;
+    position: relative;
+    top: 180px;
+    animation: animaLoad .75s linear infinite;
+}
+
 button{
     width: 48%;
     height: 50px;
-    font-size: 20px;
+    font-size: 15px;
     border: none;
     cursor: pointer;
     color: black;
