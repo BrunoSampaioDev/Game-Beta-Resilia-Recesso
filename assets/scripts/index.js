@@ -67,6 +67,27 @@ function quit(){
 }
 
 
+/************************************** 
+              Dark Mode
+***************************************/
+function darkMode(){
+    var backDark = document.querySelector('body');
+    var radios = document.getElementsByName('mode');
+    
+    for(var i= 0 in radios){
+        if(radios[i].checked && radios[i].value == 'Dark'){
+            backDark.classList.add('backgroundBlack')
+        }
+        if(radios[i].checked && radios[i].value == 'White'){
+            backDark.classList.remove('backgroundBlack')
+        }
+    }
+
+}
+darkMode()
+
+
+
 
 
 /************************************** 
