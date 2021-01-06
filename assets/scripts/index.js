@@ -1,10 +1,13 @@
+/* QUERI SELECTOR REDUZIDO */
+var $ = document.querySelector.bind(document);
+
 /************************************** 
             TELA DE LOADING  
 ***************************************/
 function loading(){
-    var load = document.querySelector('.load');
-    var conteudo = document.querySelector('.conteudo');
-    var titleLoad = document.querySelector('.titleLoad')
+    var load = $('.load');
+    var conteudo = $('.conteudo');
+    var titleLoad = $('.titleLoad')
 
     conteudo.style.display = 'none'
     load.classList.add('loading');
@@ -26,7 +29,7 @@ loading()
 ***************************************/
 function criarBtn(opt, funcName, opt2, funcName2) {
     
-    var btns = document.querySelector('.btns');
+    var btns = $('.btns');
     btns.innerHTML = `
     <button onclick="${funcName}()">${opt}</button>
     <button onclick="${funcName2}()">${opt2}</button>`
@@ -39,7 +42,7 @@ function criarBtn(opt, funcName, opt2, funcName2) {
 ***************************************/
 
 function mensagens(text){
-    var mensagem = document.querySelector('.mensagem');
+    var mensagem = $('.mensagem');
     mensagem.innerHTML = `${text}`
 
     function animarTexto(elemento){
@@ -61,9 +64,9 @@ function mensagens(text){
 
 function gameOver(){
     mensagens('Voce foi cercado por zumbis! Game Over!');
-    var back = document.querySelector('.background');
+    var back = $('.background');
     back.classList.add('back');
-    criarBtn('Iniciar novo jogo', 'start', 'sair do jogo', 'quit' );
+    criarBtn(...listaBtn[14]);
 }
 
 
@@ -72,7 +75,7 @@ function gameOver(){
             ESCONDER BTNS
 ***************************************/
 function escoderBtns(time){
-    var btns = document.querySelector('.btns');
+    var btns = $('.btns');
     btns.style.display = 'none'
 
     setTimeout(function(){
@@ -86,11 +89,12 @@ function escoderBtns(time){
                 START
 ***************************************/
 function start(){
-    var back = document.querySelector('.background');
+    
+    var back = $('.background');
     back.classList.remove('back');
-    mensagens(`A noite de 25 de Abril parecia tranquila até que tudo ficou agitado, Gritaria, explosões correria e pânico para todos os lados! Você está em casa e não sabe o que esta acontecendo...`);
+    mensagens(listaMensagens[0]);
     escoderBtns(9000);
-    criarBtn('fica em casa.', 'FicarEmCasa', 'sair de casa', 'SairDeCasa' );  
+    criarBtn(...listaBtn[13]);  
 }
 
 
@@ -109,7 +113,7 @@ function quit(){
               Dark Mode
 ***************************************/
 function darkMode(){
-    var backDark = document.querySelector('body');
+    var backDark = $('body');
     var radios = document.getElementsByName('mode');
     
     for(var i = 0 in radios){
@@ -133,109 +137,109 @@ darkMode()
 ***************************************/
 
 function FicarEmCasa(){ 
-    mensagens('Você decidiu ficar e uma orda de zumbis se aproxima, voce precisa decidir . ');
+    mensagens(listaMensagens[1]);
     escoderBtns(4000);
-    criarBtn('Ligar para o irmao.', 'ligarIrmao', 'continuar em casa', 'gameOver' );
+    criarBtn(...listaBtn[0]);
 }
 
 
 
 
 function SairDeCasa(){
-    mensagens('Voce decidiu sair de casa para explorar um pouco mais e tentar entender  que esta acontecendo, agora escolha ... ');
+    mensagens(listaMensagens[2]);
     escoderBtns(5000);
-    criarBtn('Sair de carro', 'sairDeCarro', 'Sair a pe', 'sairApe' );
+    criarBtn(...listaBtn[1]);
 }
 
 
 
 
 function sairApe(){
-    mensagens('Voce foi corajoso e decidiu sair a pe. agora escolha qual caminho vai seguir...');
+    mensagens(listaMensagens[3]);
     escoderBtns(4000);
-    criarBtn('Averiguar pela cidade', 'averiguarCidade', 'Ir a casa dos pais', 'casaDosPais'  );
+    criarBtn(...listaBtn[2]);
 }
 
 
 
 
 function sairDeCarro(){
-    mensagens('Voce decidiu que sair de carro e mais seguro e agora precisar escolher para onde vai... Voce pode Averiguar pela cidade ou Ir para casa de seus pais onde sua filha foi passar o fim de semana ');
+    mensagens(listaMensagens[4]);
     escoderBtns(9000);
-    criarBtn('Averiguar pela cidade', 'averiguarCidade', 'Ir a casa dos pais', 'casaDosPais' );
+    criarBtn(...listaBtn[3]);
 }
 
 
 
 function casaDosPais(){
-    mensagens('Ohh... não um carro capotado no meio caminho, parece ser um acidente grave, Ao lado do carro um mulher com uma criança pede ajuda desesperadamente, o que voce vai fazer ?');
+    mensagens(listaMensagens[5]);
     escoderBtns(8000);
-    criarBtn('Passar direto', 'chegouAcasaDosPais', 'Parar e ajudar', 'armadilha' );
+    criarBtn(...listaBtn[4]);
 }
 
 
 
 
 function chegouAcasaDosPais(){
-    mensagens('Chegando na casa dos seus pais não havia ninguém lá e voce nao sabe para onde todos foram. Voce sai e procura pelos familiares ou vasculha a casa em busca de pistas ?');
+    mensagens(listaMensagens[6]);
     escoderBtns(8000);
-    criarBtn('Procurar por familiares', 'averiguarCidade', 'Procurar por pistas na casa', 'vasculharCasa' );
+    criarBtn(...listaBtn[5]);
 }
 
 
 
 
 function armadilha(){
-    mensagens('Era tudo uma armadilha, voce foi cercado por um grupo de pessoas cacando suprimentos. Game Over!');
+    mensagens(listaMensagens[7]);
     escoderBtns(4000);
-    criarBtn('iniciar um novo jogo', 'start', 'Encerrar o jogo', 'quit' );
+    criarBtn(...listaBtn[6]);
 }
 
 
 
 
 function averiguarCidade(){
-    mensagens('As ruas estão um verdadeiro caos, um virus letal está tranformando todos em zumbis! Voce Volta e vai para a casa dos pais ou aproveita que esta na cidade e prossegue em busca de suprimentos');
+    mensagens(listaMensagens[8]);
     escoderBtns(9000);
-    criarBtn('Vai a casa dos pais', 'chegouAcasaDosPais', 'Procurar por suprimentos', 'buscarSuprimentos' );
+    criarBtn(...listaBtn[7]);
 }
 
 
 
 
 function buscarSuprimentos(){
-    mensagens('Voce conseguiu coletar bons suprimentos em meio ao caos, parabens! mas agora decida: continuar buscando suprimentos ou ir a casa dos pais');
+    mensagens(listaMensagens[9]);
     escoderBtns(6000);
-    criarBtn('Vai a casa dos pais', 'chegouAcasaDosPais', 'continuar a busca por suprimentos', 'gameOver' );
+    criarBtn(...listaBtn[8]);
 }
 
 
 
 
 function vasculharCasa(){
-    mensagens('Em sua busca por pistas na casa de seus pais você encontrou um bilhete: Fomos para o alto das montanhas ao norte! e gora voce precisar decidir...');
+    mensagens(listaMensagens[10]);
     escoderBtns(6000);
-    criarBtn('Subir a montanhas', 'win', 'Procurar suprimentos', 'buscarSuprimentos' );
+    criarBtn(...listaBtn[9]);
 }
 
 
 
 function win (){
-    mensagens('Voce chegou no alto da montanha, e encontrou seus familiares e agora esta em seguranca! voce venceu!');
+    mensagens(listaMensagens[11]);
     escoderBtns(5000);
-    criarBtn('Jogar novamente', 'start', 'Encerar o jogo', 'quit' );
+    criarBtn(...listaBtn[10]);
 }
 
 
 
 
 function ligarIrmao(){
-    mensagens('Seu irmão chegou na sua casa, e informou que um virus esta transformando todos em zumbis, agora vocês precisam decidir');
+    mensagens(listaMensagens[12]);
     escoderBtns(5000);
-    criarBtn('continua em casa.', 'gameOver', 'sair de casa', 'SairDeCasa' );
+    criarBtn(...listaBtn[11]);
 }
 
 
 
-criarBtn('iniciar.', 'start', 'instruction', 'instruction')
+criarBtn(...listaBtn[12])
 

@@ -6,7 +6,9 @@
 
 .darkMode{
     padding: 20px;
-    text-align: right;
+    float: right;
+    position: relative;
+    top: -110px;
 }
 
 
@@ -88,4 +90,27 @@ p{
 
 .back{
     background-image: url(../img/zombiesGameOver.jpg);
+}
+
+
+
+input[type="radio"] {
+    visibility: hidden;
+}
+
+label {
+display: block;
+width: 30px;
+float: left;
+}
+
+input[type="radio"]:checked+label {
+    color: cadetblue;
+}
+
+input[type="radio"]:hover+label {
+    cursor: pointer;
+}
+img {
+height: 50px;
 }
