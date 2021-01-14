@@ -53,9 +53,9 @@ function mensagens(text){
         textArray.forEach((letra, i) =>{
             setTimeout(function(){
                 elemento.innerHTML += letra
-            }, 50 * i)
+            }, 50 * i);
         });
-    }
+    };
     animarTexto(mensagem);
 };
 
